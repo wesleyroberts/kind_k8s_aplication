@@ -5,7 +5,7 @@ metadata:
   labels:
     app: cliente
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: cliente
@@ -16,7 +16,18 @@ spec:
     spec:
       containers:
         - name: client
-          image: wesleyroberts/bora-praticar:1.1
+          image: wesleyroberts/bora-praticar:1.2.3
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: password
+            - name: MYSQL_DATABASE
+              value: clientedb
+          envFrom:
+            - configMapRef:
+                name: cliente
           resources:
             limits:
               memory: "512Mi"

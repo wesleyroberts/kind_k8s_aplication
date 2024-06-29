@@ -4,6 +4,6 @@ services:
   cliente:
     build:
       context: ..
-    image: wesleyroberts/bora-praticar:1.1
+    image: wesleyroberts/bora-praticar:1.2.3
     ports:
       - "8085:80"
