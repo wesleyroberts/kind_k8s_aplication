@@ -26,6 +26,9 @@ public class ClienteController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Cliente salvar(@RequestBody Cliente cliente){
+        if(true){
+            throw new RuntimeException("Test");
+        }
         return clienteService.salvar(cliente);
     }
 
